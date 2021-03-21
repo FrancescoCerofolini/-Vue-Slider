@@ -4,10 +4,29 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
     <link rel="stylesheet" href="css/style.css">
-    <title>19-03-2021 Vue Slider Immagini</title>
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <title>19-03-2021 Slider Immagini</title>
 </head>
 <body>
+    <div id="app" class="container">
+        <div class="slider-wrapper">
+            <div class="prev" @click="prevPhoto">
+                <i class="fas fa-angle-left"></i>
+            </div>
+            <div class="images">
+                <img :src="photos[counterPhoto]" alt="">
+            </div>
+            <div class="next">
+                <i class="fas fa-angle-right" @click="nextPhoto"></i>
+            </div>
+
+            <div class="nav">
+                <i :class="(index == counterPhoto) ? 'active' : null" v-for="(photo, index) in photos" class="fas fa-circle"></i>
+            </div>
+        </div>
+    </div>
     <script src="js/script.js"></script>
 </body>
 </html>
